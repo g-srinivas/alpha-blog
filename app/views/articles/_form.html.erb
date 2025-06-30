@@ -1,0 +1,17 @@
+<%= render 'shared/errors' %>
+
+<div class="bg-gray-100 p-7">
+<%= form_with(model: @article, local: true)  do |f| %>
+    <p class="mb-4">
+     
+        <%= f.text_field :title, placeholder: "Title", class: "peer py-2.5 sm:py-3 px-4 ps-11 block w-full bg-white border-transparent rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-transparent dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"  %>
+    </p>
+    <p>
+     
+        <%= f.text_area :description, rows: 10, placeholder: "Description", class: "peer py-2.5 sm:py-3 px-4 ps-11 block w-full bg-white border-transparent rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-transparent dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" %>
+    </p>
+    <p class="mt-4">
+     <%= f.submit class: "py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-teal-100 text-teal-800 hover:bg-teal-200 focus:outline-hidden focus:bg-teal-200 disabled:opacity-50 disabled:pointer-events-none dark:text-teal-500 dark:bg-teal-800/30 dark:hover:bg-teal-800/20 dark:focus:bg-teal-800/20" %>
+    </p>
+<% end %>
+</div>

@@ -1,20 +1,42 @@
 <h1>Articles list</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+
     <% @articles.each do |article| %>
-        <tr>
-            <td><%= article.title %></td>
-            <td><%= article.description %></td>
-            <td></td>
-        </tr>
+
+
+
+<div class="flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70 mb-2 rounded-b-none">
+  <div class="border-b border-gray-200 rounded-t-xl py-3 px-4 md:py-4 md:px-5 dark:border-neutral-700 text-center">
+    <p class="mt-1 text-lg text-gray-500 dark:text-neutral-500 font-semibold">
+      Featured
+    </p>
+  </div>
+  <%# %>
+  <div class="text-center">
+    <h3 class="text-2xl font-bold text-gray-800 dark:text-white">
+      <%= link_to article.title, article_path(article), class: "text-green-500" %>
+    </h3>
+    <p class="mt-2 text-gray-500 dark:text-neutral-400 text-lg">
+      <%= truncate(article.description, length: 100) %>
+    </p>
+    
+<div class="mt-2">
+    <%= link_to 'Show', article_path(article), class: "py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-teal-500 text-white hover:bg-teal-600 focus:outline-hidden focus:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none" %>
+
+    <%= link_to 'Edit', edit_article_path(article), class: "py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" %>
+
+    <%= link_to 'Delete', article_path(article), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class:  "py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-red-500 text-white hover:bg-red-600 focus:outline-hidden focus:bg-red-600 disabled:opacity-50 disabled:pointer-events-none" %>
+
+</div>
+ <div class="mt-2 bg-gray-100 border-b border-gray-200 text-sm text-gray-800 p-4 dark:bg-neutral-800 dark:border-neutral-700 dark:text-white">
+    <span class="text-md text-gray-500 font-semibold">Created <%= article.created_at %> ago, </span> 
+    <span class="text-md text-gray-500 font-semibold">Edited <%= article.updated_at %> ago</span>
+  </div>
+  </div>
+</div>
+
     <% end %>
-    </tbody>
-</table>
+ 
+ <%= link_to 'Crete new ariticle', new_article_path %>
+
+ 
