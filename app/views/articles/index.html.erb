@@ -7,8 +7,8 @@
 
 <div class="flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70 mb-2 rounded-b-none">
   <div class="border-b border-gray-200 rounded-t-xl py-3 px-4 md:py-4 md:px-5 dark:border-neutral-700 text-center">
-    <p class="mt-1 text-lg text-gray-500 dark:text-neutral-500 font-semibold">
-      Featured
+    <p class="mt-1 text-lg text-gray-500 dark:text-neutral-500 font-semibold italic">
+      by <%= article.user.username if article.user %>
     </p>
   </div>
   <%# %>
